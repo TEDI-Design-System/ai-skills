@@ -29,10 +29,10 @@ A one-shot clone:
 
 ```bash
 mkdir tedi && cd tedi
-gh repo clone TEDI-Design-System/react
-gh repo clone TEDI-Design-System/angular
-gh repo clone TEDI-Design-System/core
-gh repo clone TEDI-Design-System/ai-skills
+git clone https://github.com/TEDI-Design-System/react.git
+git clone https://github.com/TEDI-Design-System/angular.git
+git clone https://github.com/TEDI-Design-System/core.git
+git clone https://github.com/TEDI-Design-System/ai-skills.git
 ```
 
 If you only ever work on one framework you can skip the others, but cross-references in the skill will then surface as "not found" notes.
