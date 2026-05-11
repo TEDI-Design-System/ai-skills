@@ -1,0 +1,17 @@
+{
+  "name": "tedi",
+  "description": "AI skills for contributing to the TEDI Design System",
+  "owner": { "name": "TEDI Design System" },
+  "plugins": [
+    {
+      "name": "tedi-react-contributing",
+      "source": "./plugins/tedi-react-contributing",
+      "category": "design-system"
+    },
+    {
+      "name": "tedi-angular-contributing",
+      "source": "./plugins/tedi-angular-contributing",
+      "category": "design-system"
+    }
+  ]
+}

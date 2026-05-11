@@ -1,0 +1,9 @@
+{
+  "name": "tedi-angular-contributing",
+  "description": "Contributor skill for the TEDI Design System Angular implementation. Guides new components, Storybook stories, WCAG audits, refactoring, and tests.",
+  "author": { "name": "TEDI Design System" },
+  "homepage": "https://github.com/TEDI-Design-System/ai-skills",
+  "repository": "https://github.com/TEDI-Design-System/ai-skills",
+  "license": "MIT",
+  "keywords": ["tedi", "design-system", "angular", "contributing", "storybook", "wcag"]
+}
