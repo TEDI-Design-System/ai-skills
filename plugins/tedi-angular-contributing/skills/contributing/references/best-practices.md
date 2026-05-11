@@ -291,6 +291,18 @@ Add the new component export to the parent category barrel file (e.g., `tedi/com
 - UUID generation: `tedi/helpers/generate-uuid.ts`
 
 ## Known Quirks
-- `toggle.component.ts` still uses old `@ViewChild` decorator — should be migrated to `viewChild()` signal
 - Translations support both simple strings and parameterized functions: `(key: string) => string`
 - Do NOT reference `community/` components as examples — they are community-contributed and not always reviewed
+
+## Finding Canonical Examples
+
+When picking a real component to model from, don't guess the name — find one by pattern. From the repo root:
+
+- **Element selector wrapper component** — `rg "selector: 'tedi-" tedi/components --files-with-matches`
+- **Attribute selector (enhances native element)** — `rg "selector: '\\[tedi-" tedi/components --files-with-matches`
+- **`ControlValueAccessor` form control** — `rg "NG_VALUE_ACCESSOR" tedi/components --files-with-matches`
+- **Two-way binding via `model()`** — `rg "= model<" tedi/components --files-with-matches`
+- **Effects in constructor** — `rg "effect\\(\\(\\) =>" tedi/components --files-with-matches`
+- **Content projection** — `rg "<ng-content" tedi/components --files-with-matches`
+
+Then read the simplest match and model your code after it. Prefer TEDI-Ready components over Community ones.

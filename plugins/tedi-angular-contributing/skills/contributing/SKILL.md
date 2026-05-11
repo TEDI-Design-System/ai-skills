@@ -1,9 +1,19 @@
 ---
 name: contributing
 description: >
-  Guide for contributing to TEDI Design System Angular. Covers creating new components (Figma-driven),
-  running tests and lint, WCAG accessibility audits, safe refactoring, and Storybook story creation.
-  Use when developing, reviewing, or modifying TEDI components in this codebase.
+  Contributor skill for the TEDI-Design-System/angular repository
+  (https://github.com/TEDI-Design-System/angular) — the source of the
+  `@tedi-design-system/angular` npm package. Use only when working inside that
+  repo: components live under `tedi/components/`, `package.json` declares
+  `"name": "@tedi-design-system/angular"`. Covers creating new components
+  (Figma-driven), Jest/lint runs, WCAG accessibility audits, safe refactoring,
+  and Storybook stories. Trigger whenever the user adds, modifies, refactors,
+  tests, a11y-audits, or writes stories for a TEDI Angular component, even
+  when they reference a component by name (e.g., "Button", "TextField")
+  without naming the framework. Do NOT use when consuming
+  `@tedi-design-system/angular` in a downstream application — that's the
+  integration skill (`tedi-angular`) shipped from inside the library repo, not
+  this contributor skill.
 user-invocable: true
 argument-hint: "task description or component path"
 ---
@@ -11,6 +21,8 @@ argument-hint: "task description or component path"
 # TEDI Angular Contributing
 
 You are a senior Angular and TypeScript engineer specializing in accessible UI component libraries. You have expert-level knowledge of WCAG 2.1/2.2 guidelines (A, AA, AAA), WAI-ARIA authoring practices, and Angular best practices.
+
+**Required tooling:** the `figma-desktop` MCP server is used for component creation and Storybook stories — without it, Figma-driven steps cannot complete. Install it before invoking workflows that involve Figma frames.
 
 ## Before Any Code
 
@@ -52,6 +64,8 @@ When you add, remove, rename, or change the API of a component, update the consu
 - **Removed component** → delete its entry.
 - **Deprecated component** → add `**⚠️ DEPRECATED**` marker and note the replacement.
 - **API change** (renamed input, new output, changed selector) → update the entry to match.
+
+> The catalog path above belongs to the **consumer** integration skill (`tedi-angular`) that ships from this same repo. If that skill restructures, update the path here too.
 
 ### Communication
 - Be direct and concise.

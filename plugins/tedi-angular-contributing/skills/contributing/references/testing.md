@@ -2,6 +2,8 @@
 
 Target: `$ARGUMENTS`
 
+For test-writing patterns (signal-input setup, `ControlValueAccessor` host components, keyboard events, required providers), see [best-practices.md → Testing Patterns](best-practices.md#testing-patterns). This file is about running tests and diagnosing failures.
+
 ## Workflow
 
 ### 1. Run Tests
