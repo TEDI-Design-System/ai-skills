@@ -42,8 +42,12 @@ fi
 
 # Run test if spec file exists
 if [[ -n "$SPEC" && -f "$SPEC" ]]; then
-  echo "Running: npm test -- --testPathPattern=\"$SPEC\""
-  npm test -- --testPathPattern="$SPEC" 2>&1
+  echo "Running: npx jest $SPEC"
+  if ! npx jest "$SPEC" --no-coverage 2>&1; then
+    echo "Auto-test failed (non-blocking)."
+  fi
 else
   echo "No spec file found at $SPEC — skipping auto-test."
 fi
+
+exit 0

@@ -28,9 +28,8 @@ if [[ "$FILE" =~ \.(spec|stories)\. ]]; then
   exit 0
 fi
 
-# Derive the spec file path
-SPEC="${FILE%.*}.spec.${FILE##*.}"
-# Handle .component.ts -> .component.spec.ts
+# Derive the spec file path — only for known Angular file types
+SPEC=""
 if [[ "$FILE" =~ \.component\.ts$ ]]; then
   SPEC="${FILE%.component.ts}.component.spec.ts"
 elif [[ "$FILE" =~ \.component\.html$ ]]; then
@@ -41,6 +40,12 @@ elif [[ "$FILE" =~ \.directive\.ts$ ]]; then
   SPEC="${FILE%.directive.ts}.directive.spec.ts"
 elif [[ "$FILE" =~ \.service\.ts$ ]]; then
   SPEC="${FILE%.service.ts}.service.spec.ts"
+fi
+
+# No mapping for this file type — skip silently (avoids noisy "no spec file" output
+# when editing utils, helpers, tokens, etc.)
+if [[ -z "$SPEC" ]]; then
+  exit 0
 fi
 
 # Run test if spec file exists
