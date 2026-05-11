@@ -13,29 +13,25 @@ Two plugins, one per framework:
 
 Out of scope: the consumer-facing *integration* skills (`tedi-react`, `tedi-angular`) that live inside the implementation repos for downstream apps.
 
-## Prerequisite: sibling-repo checkout
+## Prerequisite: sibling working repos
 
-The skills reference sibling repos for cross-implementation consistency (e.g. the React skill peeks at `../angular/` and `../core/` for behavioral parity and design tokens). For the skills to give grounded answers, clone the TEDI repos side-by-side:
+The skills themselves don't need to live anywhere specific — the marketplace install handles that, and manual installs can live anywhere on disk. But the *working* TEDI repos (the ones you're contributing to) reference each other with relative paths: the React contributor skill peeks at `../angular/` and `../core/` for behavioral parity and design tokens, and the Angular skill mirrors that. For those references to resolve, the TEDI implementation repos must sit side-by-side:
 
 ```
 your-workspace/
-├── react/                 # TEDI-Design-System/react
-├── angular/               # TEDI-Design-System/angular
-├── core/                  # TEDI-Design-System/core   (design tokens)
-└── ai-skills/             # this repo
+├── react/      # TEDI-Design-System/react
+├── angular/    # TEDI-Design-System/angular
+└── core/       # TEDI-Design-System/core   (design tokens)
 ```
-
-A one-shot clone:
 
 ```bash
 mkdir tedi && cd tedi
 git clone https://github.com/TEDI-Design-System/react.git
 git clone https://github.com/TEDI-Design-System/angular.git
 git clone https://github.com/TEDI-Design-System/core.git
-git clone https://github.com/TEDI-Design-System/ai-skills.git
 ```
 
-If you only ever work on one framework you can skip the others, but cross-references in the skill will then surface as "not found" notes.
+If you only ever work on one framework you can skip the others, but cross-references in the skill will surface as "not found" notes.
 
 ## Install for Claude Code (primary path)
 
