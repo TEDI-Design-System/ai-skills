@@ -1,6 +1,13 @@
 # TEDI AI skills
 
-AI assistant skills for contributing to the [TEDI Design System](https://github.com/TEDI-Design-System). This repo is a **Claude Code plugin marketplace** so contributors can install the skills with two commands; the same skill files also work with other AI tooling (instructions below).
+AI assistant skills for **contributing to** the [TEDI Design System](https://github.com/TEDI-Design-System). This repo is a **Claude Code plugin marketplace** so contributors can install the skills with two commands; the same skill files also work with other AI tooling (instructions below).
+
+> **Looking for skills to *use* TEDI in your own app?** This repo is only for contributing to the TEDI codebase. The consumer-facing *integration* skills (for building apps that consume `@tedi-design-system/react` or `@tedi-design-system/angular`) ship inside the implementation repos themselves:
+>
+> - [`TEDI-Design-System/react`](https://github.com/TEDI-Design-System/react) → `skills/tedi-react/`
+> - [`TEDI-Design-System/angular`](https://github.com/TEDI-Design-System/angular) → `skills/tedi-angular/`
+>
+> Install those from there, not from here.
 
 ## What's in the box
 
@@ -10,8 +17,6 @@ Two plugins, one per framework:
 | --- | --- | --- |
 | `tedi-react-contributing` | `contributing` | Guides creating, refactoring, testing, and a11y-auditing components in [`TEDI-Design-System/react`](https://github.com/TEDI-Design-System/react). Bundles a post-edit hook that auto-runs the matching Jest spec. |
 | `tedi-angular-contributing` | `contributing` | Same workflow for [`TEDI-Design-System/angular`](https://github.com/TEDI-Design-System/angular), with an Angular-aware post-edit hook. |
-
-Out of scope: the consumer-facing *integration* skills (`tedi-react`, `tedi-angular`) that live inside the implementation repos for downstream apps.
 
 ## Prerequisite: sibling working repos
 
