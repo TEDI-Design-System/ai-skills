@@ -317,3 +317,16 @@ Enforced by `simple-import-sort`:
 - `useLabels()` hook for internationalization
 - `useScrollFade()` hook (`src/tedi/helpers/hooks/use-scroll-fade.ts`) for scroll containers with fade indicators — supports `direction: 'vertical' | 'horizontal'`, returns `canScrollStart`, `canScrollEnd`, `scrollRef` (callback ref with ResizeObserver), and `handleScroll`
 - Do NOT reference `src/community/` components as examples — they are not always reviewed to TEDI standards
+
+## Finding Canonical Examples
+
+When picking a real component to model from, don't guess the name — find one by pattern. From the repo root:
+
+- **forwardRef** — `rg "forwardRef<HTML" src/tedi/components --files-with-matches`
+- **Polymorphic (`as` prop)** — `rg "PolymorphicRef" src/tedi/components --files-with-matches`
+- **Breakpoint-aware (`BreakpointSupport<...>`)** — `rg "BreakpointSupport<" src/tedi/components --files-with-matches`
+- **Controlled + uncontrolled** — `rg "innerValue" src/tedi/components --files-with-matches`
+- **floating-ui-backed overlay** — `rg "useFloating\\(" src/tedi/components --files-with-matches`
+- **Compound component with sub-exports** — find directories with their own `index.ts`: `find src/tedi/components -name index.ts -not -path '*/node_modules/*'`
+
+Then read the simplest match and model your code after it. Prefer TEDI-Ready components over Community ones.

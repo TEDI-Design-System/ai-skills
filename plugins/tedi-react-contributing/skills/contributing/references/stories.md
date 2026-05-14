@@ -48,6 +48,30 @@ Rules:
   };
   ```
 
+- **Variant comparison layout** — when a component has multiple variants (e.g., primary/secondary), show them **side by side** in a `Row` grid, not stacked vertically. Use a header row with bold labels for each variant column. Use TEDI's text component for the headers (check existing stories for the exact import — typically a `Text` component with a bold modifier or `<strong>`):
+
+  ```tsx
+  <Row gutter={3}>
+    <Col><strong>Primary</strong></Col>
+    <Col><strong>Secondary</strong></Col>
+    <Col>{/* primary content */}</Col>
+    <Col>{/* secondary content */}</Col>
+  </Row>
+  ```
+
+  For states with variants, use a 3-column layout (State | Primary | Secondary), one row per state:
+
+  ```tsx
+  <Row gutter={3}>
+    <Col><strong>State</strong></Col>
+    <Col><strong>Primary</strong></Col>
+    <Col><strong>Secondary</strong></Col>
+    {/* one row per state: label, primary instance, secondary instance */}
+  </Row>
+  ```
+
+  Pair this with `parameters.pseudo` selectors targeting unique IDs on each instance (`#Hover`, `#Active`, `#Focus`) so `storybook-addon-pseudo-states` can paint the right cells.
+
 ### 3. Determine the Story Category
 
 Map the component path to the Storybook title:

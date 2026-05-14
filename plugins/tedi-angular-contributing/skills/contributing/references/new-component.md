@@ -16,9 +16,13 @@ If no Figma link was provided, stop immediately and ask the user for one. Do not
 
 Enter plan mode and create a detailed plan covering:
 
-- **Component name** and selector (`tedi-` prefix)
+- **Component name** and selector
+- **Selector type** — element selector (`tedi-foo`) for wrapper components, or attribute selector (`[tedi-foo]`) for components that enhance an existing native element
 - **Category** — which folder under `tedi/components/` it belongs to
-- **API design** — all inputs (with types and defaults), outputs, content projection slots
+- **API design** — all inputs (with types and defaults), outputs, content projection slots (single `<ng-content>` or named slots)
+- **Form integration** — does it implement `ControlValueAccessor`? If yes, plan the `NG_VALUE_ACCESSOR` provider (with `forwardRef()` and `multi: true`) and a reactive-forms test host
+- **Signal API** — which inputs are `input()`, which are `model()` for two-way binding, which derived state needs `computed()` or `effect()`
+- **Change detection** — `OnPush` is the default; flag any state that requires manual `markForCheck()`
 - **Accessibility** — ARIA roles, keyboard interactions, screen reader behavior, focus management
 - **Dependencies** — existing TEDI components to reuse, third-party libraries if needed
 - **File list** — every file to create
@@ -42,12 +46,12 @@ index.ts
 
 ## Step 4: Implement
 
-Follow all patterns from best-practices:
+Follow all patterns from [best-practices.md](best-practices.md) — class structure, signal API, ControlValueAccessor, styling, testing. Key requirements:
 - Standalone, OnPush, ViewEncapsulation.None
-- Signal-based inputs (`input()`, `model()`, `output()`)
+- Signal-based inputs (`input()`, `model()`, `output()`) — never `@Input()` / `@Output()` decorators
 - BEM SCSS with `tedi-` prefix, using design tokens
 - Form controls MUST implement `ControlValueAccessor` with `NG_VALUE_ACCESSOR` provider (using `forwardRef()` and `multi: true`) for reactive forms integration. Test with a host component using `ReactiveFormsModule` and `FormControl`.
-- Full WCAG compliance (roles, keyboard nav, focus, aria attributes)
+- Full WCAG compliance (roles, keyboard nav, focus, aria attributes) — see [a11y-review.md](a11y-review.md) for the checklist
 
 ## Step 5: Export
 

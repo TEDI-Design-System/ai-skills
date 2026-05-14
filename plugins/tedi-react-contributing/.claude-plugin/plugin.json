@@ -1,5 +1,6 @@
 {
   "name": "tedi-react-contributing",
+  "version": "0.1.0",
   "description": "Contributor skill for the TEDI Design System React implementation. Guides new components, Storybook stories, WCAG audits, refactoring, and tests.",
   "author": { "name": "TEDI Design System" },
   "homepage": "https://github.com/TEDI-Design-System/ai-skills",

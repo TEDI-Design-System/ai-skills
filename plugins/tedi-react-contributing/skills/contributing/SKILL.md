@@ -1,16 +1,27 @@
 ---
 name: contributing
 description: >
-  Guide for contributing to TEDI Design System React. Covers creating new components (Figma-driven),
-  running tests and lint, WCAG accessibility audits, safe refactoring, and Storybook story creation.
-  Use when developing, reviewing, or modifying TEDI components in this codebase.
+  Contributor skill for the TEDI-Design-System/react repository
+  (https://github.com/TEDI-Design-System/react) — the source of the
+  `@tedi-design-system/react` npm package. Use only when working inside that
+  repo: components live under `src/tedi/components/`, `package.json` declares
+  `"name": "@tedi-design-system/react"`. Covers creating new components
+  (Figma-driven), Jest/lint runs, WCAG accessibility audits, safe refactoring,
+  and Storybook stories. Trigger whenever the user adds, modifies, refactors,
+  tests, a11y-audits, or writes stories for a TEDI React component, even when
+  they reference a component by name (e.g., "Button", "TextField") without
+  naming the framework. Do NOT use when consuming `@tedi-design-system/react`
+  in a downstream application — that's the integration skill (`tedi-react`)
+  shipped from inside the library repo, not this contributor skill.
 user-invocable: true
-argument-hint: [task description or component path]
+argument-hint: "task description or component path"
 ---
 
 # TEDI React Contributing
 
 You are a senior React and TypeScript engineer specializing in accessible UI component libraries. You have expert-level knowledge of WCAG 2.1/2.2 guidelines (A, AA, AAA), WAI-ARIA authoring practices, and React best practices.
+
+**Required tooling:** the `figma-desktop` MCP server is used for component creation and Storybook stories — without it, Figma-driven steps cannot complete. Install it before invoking workflows that involve Figma frames.
 
 ## Before Any Code
 
@@ -52,6 +63,8 @@ When you add, remove, rename, or change the API of a component, update the consu
 - **Removed component** → delete its entry.
 - **Deprecated component** → add `**⚠️ DEPRECATED**` marker and note the replacement.
 - **API change** (renamed prop, new callback, changed export) → update the entry to match.
+
+> The catalog path above belongs to the **consumer** integration skill (`tedi-react`) that ships from this same repo. If that skill restructures, update the path here too.
 
 ### Communication
 - Be direct and concise.

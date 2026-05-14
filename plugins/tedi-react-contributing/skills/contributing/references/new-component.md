@@ -43,13 +43,13 @@ component-name.module.scss   (if styles needed)
 
 ## Step 4: Implement
 
-Follow all patterns from best-practices:
+Follow all patterns from [best-practices.md](best-practices.md) — component architecture, controlled/uncontrolled merge, styling, query priority. Key requirements:
 - forwardRef when the component needs ref forwarding
 - Polymorphic pattern if it needs to render as different elements
 - Controlled + uncontrolled if it's a form control
 - CSS Modules with BEM SCSS, using design tokens
 - `displayName` set on every exported component
-- Full WCAG compliance (roles, keyboard nav, focus, aria attributes)
+- Full WCAG compliance (roles, keyboard nav, focus, aria attributes) — see [a11y-review.md](a11y-review.md) for the checklist
 
 ## Step 5: Export
 
